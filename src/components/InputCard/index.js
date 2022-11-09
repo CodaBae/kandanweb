@@ -48,7 +48,7 @@ export default function InputCard({ setOpen, listId, type }) {
           onChange={handleOnChangeColor}
           value={color}
           className="input-color"
-          placeholder='Enter list color'
+          placeholder='Enter list color eg red'
           autoFocus
         />
       </div>
