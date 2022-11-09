@@ -78,8 +78,8 @@ export default function Home() {
     setData(newState);
     window.localStorage.setItem("dataKanban", JSON.stringify(newState));
   };
-  const addMoreList = (title) => {
-    if (!title) {
+  const addMoreList = (title,color) => {
+    if (!title || !color) {
       return;
     }
 
@@ -87,6 +87,7 @@ export default function Home() {
     const newList = {
       id: newListId,
       title,
+      color,
       cards: [],
     };
     const newState = {

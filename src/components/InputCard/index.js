@@ -8,26 +8,33 @@ import "./styles.scss";
 export default function InputCard({ setOpen, listId, type }) {
   const { addMoreCard, addMoreList } = useContext(storeApi);
   const [title, setTitle] = useState("");
+  const [color, setColor] = useState("");
 
-  const handleOnChange = (e) => {
+
+  const handleOnChangeTitle = (e) => {
     setTitle(e.target.value);
+  };
+  const handleOnChangeColor = (e) => {
+    setColor(e.target.value);
   };
 
   const handleBtnConfirm = () => {
     if (type === "card") {
       addMoreCard(title, listId);
     } else {
-      addMoreList(title);
+      addMoreList(title,color);
     }
     setOpen(false);
     setTitle("");
+    setColor("");
+
   };
 
   return (
     <div className="input-card">
       <div className="input-card-container">
         <textarea
-          onChange={handleOnChange}
+          onChange={handleOnChangeTitle}
           value={title}
           className="input-text"
           placeholder={
@@ -35,6 +42,13 @@ export default function InputCard({ setOpen, listId, type }) {
               ? "Enter a title of this card..."
               : "Enter list title"
           }
+          autoFocus
+        />
+        <input
+          onChange={handleOnChangeColor}
+          value={color}
+          className="input-color"
+          placeholder='Enter list color'
           autoFocus
         />
       </div>
@@ -46,6 +60,7 @@ export default function InputCard({ setOpen, listId, type }) {
           className="button-cancel"
           onClick={() => {
             setTitle("");
+            setColor("");
             setOpen(false);
           }}
         >
