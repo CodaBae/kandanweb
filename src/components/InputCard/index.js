@@ -44,13 +44,16 @@ export default function InputCard({ setOpen, listId, type }) {
           }
           autoFocus
         />
-        <input
+        {type === "card" ? '' : (
+          <input
           onChange={handleOnChangeColor}
           value={color}
           className="input-color"
-          placeholder='Enter list color eg red'
+          placeholder='Enter list color eg red, #ffffff'
           autoFocus
         />
+        )}
+        
       </div>
       <div className="confirm">
         <button className="button-confirm" onClick={handleBtnConfirm}>

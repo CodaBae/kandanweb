@@ -30,6 +30,8 @@
     cursor: pointer;
 
     transition: background-color 0.2s;
+    border-radius: 2px;
+
 
     &:hover {
       background-color: #ddd;
