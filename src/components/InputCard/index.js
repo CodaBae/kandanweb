@@ -44,7 +44,7 @@ export default function InputCard({ setOpen, listId, type }) {
           }
           autoFocus
         />
-        {type === "card" ? '' : (
+        {type !== "card" && (
           <input
           onChange={handleOnChangeColor}
           value={color}
