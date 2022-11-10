@@ -28,12 +28,13 @@ export default function Card({ card, index, listId }) {
         >
           <div className="card-content">
             {open ? (
-              <TextareaAutosize
+              <TextareaAutosize ref={ref => ref && ref.focus()}
                 type="text"
                 className="input-card-title"
                 placeholder="Enter a title of this card..."
                 value={newTitle}
                 onChange={(e) => setNewTitle(e.target.value)}
+                onFocus={(e)=>e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length)}
                 onBlur={handleOnBlur}
                 onKeyPress={(e) => {
                   if (e.key === "Enter") {
